@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300;400;500;600;700&display=swap');
+@import url('./font/themify-icons/themify-icons.css');
+
+@import url("./css/toast-message.css");
+@import url("./css/nav.css");
+@import url("./css/home-page.css");
+@import url("./css/login-register.css");
+@import url("./css/list.css");
+@import url("./css/fund-page.css");
+@import url("./css/bidding-page.css");
+
+@import url("./css/responstive.css");
+
+:root {
+    --primary-color: #39ba18;
+    --input-color: #1c6c08;
+    --text-gray: #aaadac;
+    --text-highlight-color: #006949;
+    --border-color: #ccc;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Signika Negative', sans-serif;
+
+}
+
+html {
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    box-sizing: border-box;
+
+}
+
+body {
+    margin: 0;
+}
+
+#copyright {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    z-index: 1000;
+    padding-top: 4px;
+    background-color: #fff;
+}
+
+#copyright label {
+    font-size: 1.4rem;
+}
+
+
+/* ------------Contact Page------------------ */
+.contact {
+    width: 100%;
+}
+
+.contact__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact__item {
+    padding: 10px;
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+.contact__title {
+    font-size: 3rem;
+    font-weight: 600;
+    margin: 20px 0 20px 0;
+}
+
+.contact__description {
+    max-width: 570px;
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    text-align: center;
+    font-style: italic;
+}
+
+.contact__icon {
+    line-height: 1.6rem;
+    font-weight: 500;
+    padding-right: 5px;
+}
+
+.contact__phone {}
+
+.contact__email {}
+
+.contact__address {}
+
+.contact__social {}
+
+.contact__social-icon {
+    font-size: 3rem;
+    padding-right: 12px;
+    transform: translateY(0);
+}
+
+.contact__social-icon:hover {
+    cursor: pointer;
+    font-size: 3.4rem;
+    transform: translateY(-3px)
+}

@@ -1,0 +1,150 @@
+/* ------------fund Page------------------ */
+.fund__container {
+    width: 100%;
+    margin-top: 80px;
+}
+
+.fund__header {
+    display: block;
+    font-size: 3.2rem;
+    line-height: 3.6rem;
+    padding: 10px;
+    width: 100%;
+    font-weight: 600;
+    margin: 20px 0 30px;
+    text-align: center;
+    color: var(--text-highlight-color);
+
+}
+
+.fund__box {
+    width: 60%;
+    margin: 20px auto 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #e6f4ff;
+    padding: 30px 40px 60px;
+    border-radius: 16px;
+}
+
+.fund__info {
+    display: flex;
+    width: 100%;
+    padding: 10px 10px 20px 10px;
+    height: 60px;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #726c6c;
+}
+
+.fund__person {
+    width: 50%;
+    display: flex;
+}
+
+
+.fund__person-avatar {
+    padding: 10px;
+    width: 60px;
+    height: 60px;
+    background-image: url(../img/fund-person.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: 50%;
+}
+
+.fund__person-username {
+    padding: 10px 10px 10px 20px;
+    flex-grow: 4;
+    height: 60px;
+    font-size: 2.4rem;
+    line-height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: green;
+    font-weight: bold;
+}
+
+.fund__balence {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.fund__balence-title {
+    width: 140px;
+    font-size: 2.4rem;
+    padding: 10px;
+}
+
+.fund__person-balence {
+    padding: 10px 0 10px;
+    font-size: 2.6rem;
+    text-align: right;
+    color: red;
+    font-weight: bold;
+}
+
+.fund__person-balence span {
+    margin-left: 4px;
+}
+
+.fund__icon {
+    justify-self: flex-end;
+    width: 40px;
+    font-size: 3rem;
+    padding-left: 30px;
+}
+
+
+.fund__person-username::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background-color: #ccc;
+    top: 0;
+    right: 0;
+}
+
+
+.fund__item {
+    padding: 10px;
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.fund__tilte_cash {
+    font-size: 2.4rem;
+    font-weight: bold;
+    margin: 20px 0 30px;
+}
+
+.fund__input-cash {
+    padding: 12px 20px;
+    border-radius: 10px;
+    width: 60%;
+    outline: none;
+    font-size: 1.8rem;
+    border: 1px solid #ccc;
+    color: red;
+}
+
+.fund__btn {
+    display: block;
+    padding: 10px 20px;
+    margin: 30px auto 30px;
+    border: 1px solid var(--border-color);
+    font-size: 2rem;
+    background-color: var(--primary-color);
+    color: #fff;
+    cursor: pointer;
+    border-radius: 12px;
+    outline: none;
+}

@@ -1,0 +1,161 @@
+/* Mobile & Tablet */
+@media (max-width: 1023px) {
+    :root {}
+
+    .hide-on-mobile-tablet {
+        display: none;
+    }
+
+    .header--logo {
+        margin-left: 8px;
+    }
+
+    .header-search__input {
+        margin-left: 12px;
+    }
+
+}
+
+/* Tablet */
+@media (min-width: 740px) and (max-width: 1023px) {
+    .hide-on-tablet {
+        display: none;
+    }
+
+
+
+
+
+
+}
+
+/* Mobile */
+@media screen and (max-width: 739px) {
+    :root {}
+
+    .hide-on-mobile {
+        display: none;
+    }
+
+    .show-on-mobile {
+        display: block;
+    }
+
+    #toast {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+    }
+
+    .toast {
+        max-width: unset;
+        min-width: unset;
+        width: 100%;
+    }
+
+    .login-page__container {
+        width: calc(100% - 20px);
+        margin: 20px 10px 60px 10px;
+        height: unset;
+    }
+
+    .login-page__col {
+        width: 100%;
+    }
+
+    .login-page__btn {
+        width: 100%;
+    }
+
+    .login-page__option {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0;
+        justify-content: center;
+        padding: 0;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .login-page__btn-other {
+        display: flex;
+        /* justify-content: space-between; */
+        min-width: 100%;
+        margin: 10px;
+    }
+
+    .nav-mobile {
+        display: flex;
+    }
+
+    .nav__logo {
+        padding-left: 0;
+        font-size: 2.2rem;
+    }
+
+    .nav__account-name {
+        font-size: 1.6rem;
+    }
+
+    .nav__account-balence {
+        font-size: 1.6rem
+    }
+
+    .list__title {
+        line-height: 3rem;
+    }
+
+    .list__panel {
+        display: none;
+    }
+
+    .list__sort {
+        margin: 10px 10px 20px;
+        width: calc(100% - 20px);
+    }
+
+    .list__sort-title {
+        display: block;
+        padding: 10px 0;
+    }
+
+    .list__sort-btn {
+        margin: 6px 4px 6px 0;
+    }
+
+    .list__item {
+        width: calc(50% - 16px);
+    }
+
+    /* ------------fund Page------------------ */
+
+    .fund__header {}
+
+    .fund__box {
+        width: calc(100% - 20px);
+        padding: 20px;
+    }
+
+    .fund__info {
+        display: none;
+    }
+
+    .fund__tilte_cash {
+        font-size: 2.4rem;
+        font-weight: bold;
+        margin: 30px 0 40px;
+    }
+
+    .fund__input-cash {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .fund__btn {
+        display: block;
+        width: 100%;
+        padding: 10px 20px;
+        margin: 40px 0 40px;
+    }
+}
