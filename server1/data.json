@@ -1,0 +1,143 @@
+{
+  "users": [
+    {
+      "username": "admin0",
+      "password": "admin123",
+      "balence": 3283525
+    },
+    {
+      "username": "TruongQuocHoi",
+      "password": "123456",
+      "balence": 100000
+    },
+    {
+      "username": "hgreen",
+      "password": "121212a",
+      "balence": 1180
+    },
+    {
+      "username": "ggrree",
+      "password": "121212",
+      "balence": 0
+    },
+    {
+      "username": "admin1",
+      "password": "121212",
+      "balence": 0
+    },
+    {
+      "username": "admin1",
+      "password": "121212",
+      "balence": 0
+    },
+    {
+      "username": "admin2",
+      "password": "121212",
+      "balence": 2000
+    },
+    {
+      "username": "nhom3_ltm",
+      "password": "121212",
+      "balence": 0
+    },
+    {
+      "username": "nhom03_test",
+      "password": "121212a",
+      "balence": 0
+    },
+    {
+      "username": "admin5",
+      "password": "121212",
+      "balence": 0
+    },
+    {
+      "username": "mmoo12",
+      "password": "121212",
+      "balence": 0
+    }
+  ],
+  "products": [
+    {
+      "name": "Nhẫn kim cương nam vàng trắng 18k CH N007",
+      "hour": 15,
+      "date": "29/11/2022",
+      "start": 55,
+      "time": "1",
+      "end": 56,
+      "price": "10000",
+      "owner": "admin0",
+      "is_bidded": true,
+      "last_bidder": "daigia_GoVap"
+    },
+    {
+      "name": "Tai nghe Apple Airpod 3 - New version 2022",
+      "hour": 16,
+      "date": "29/11/2022",
+      "start": 21,
+      "time": "3",
+      "end": 25,
+      "price": "999",
+      "owner": "admin0",
+      "is_bidded": true,
+      "last_bidder": "Hung@GiaLai"
+    },
+    {
+      "name": "Đồng hồ Hublot 465.SX.9900.LR.0999",
+      "hour": 19,
+      "date": "29/11/2022",
+      "start": 8,
+      "time": "2",
+      "end": 10,
+      "price": "8599",
+      "is_bidded": true,
+      "owner": "admin0",
+      "last_bidder": "AnhHungPK"
+    },
+    {
+      "name": "Samsung Galaxy ZFold3 512GB - 12GB RAM 2022",
+      "hour": 21,
+      "date": "29/11/2022",
+      "start": 34,
+      "time": "1",
+      "end": 35,
+      "price": "1243",
+      "is_bidded": true,
+      "owner": "TruongQuocHoi",
+      "last_bidder": "AnhHungPK"
+    },
+    {
+      "name": "Vòng tay Bạc STYLE By PNJ Nàng Thu 0000Y000039",
+      "hour": 21,
+      "date": "30/11/2022",
+      "start": 35,
+      "time": "2",
+      "end": 39,
+      "price": "999",
+      "is_bidded": true,
+      "owner": "admin0",
+      "last_bidder": "TruongQuocHoi"
+    },
+    {
+      "name": "Vòng tay Bạc đính Ngọc trai PNJSilver Hoa của Mẹ PF00X000001",
+      "hour": 21,
+      "date": "30/11/2022",
+      "start": 38,
+      "end": 41,
+      "price": "1037",
+      "owner": "hgreen",
+      "is_bidded": true,
+      "last_bidder": "nhom3_ltm"
+    },
+    {
+      "name": "Đồng hồ thông minh Miband",
+      "hour": 15,
+      "date": "03/12/2022",
+      "start": 47,
+      "end": 48,
+      "price": "197",
+      "owner": "nhom03_test",
+      "is_bidded": true,
+      "last_bidder": "hgreen"
+    }
+  ]
+}
