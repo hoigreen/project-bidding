@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
+import Nav from '../nav/Nav';
+import Copyright from '../common/Copyright';
+import NavMobile from '../nav/NavMobile';
 
 const ContactPage = () => {
     return (
         <div>
+            <Nav />
+            <NavMobile />
             <div className='contact'>
                 <div className='contact__container'>
                     <label className='contact__item contact__title'>Thông tin liên hệ</label>
@@ -28,9 +33,7 @@ const ContactPage = () => {
                 </div>
 
             </div>
-            <div className="home__copyright">
-                <label>© Bản quyền thuộc Nhóm 3 - 2022</label>
-            </div>
+           <Copyright />
         </div>
     );
 }

@@ -34,7 +34,7 @@ const Nav = ({ socket }) => {
                 <div class="nav__account-info">
                     <p class="nav__account-name">${username}</p>
                     <span class='nav__account-char'>-</span>
-                    <p class="nav__account-balence">${Number(userBalance).toLocaleString() || ""} $</p>
+                    <p class="nav__account-balence">${Number(userBalance).toLocaleString() || ""} VNĐ</p>
                 </div>
                 <button class="nav__account-btn nav__account-btn--register hide-on-mobile">
                     Đăng xuất
@@ -75,7 +75,11 @@ const Nav = ({ socket }) => {
                 <div className="nav__option hide-on-mobile">
                     <button className="nav__option-btn" onClick={(e) => { window.location.href = '/bidding'; }}>Đấu giá</button>
                     <button className="nav__option-btn" onClick={(e) => { window.location.href = '/list'; }}>Sản phẩm</button>
-                    <button className="nav__option-btn" onClick={(e) => { window.location.href = '/fund'; }}>Nạp tiền</button>
+                    <button className="nav__option-btn" onClick={(e) => {
+                        if (window.localStorage.getItem("usernameLogged")) {
+                            window.location.href = '/fund';
+                        } else alert("Vui lòng đăng nhập tài khoản để thực hiện nạp tiền!")
+                    }}>Nạp tiền</button>
                     <button className="nav__option-btn" onClick={(e) => { window.location.href = '/contact'; }}>Liên hệ</button>
                 </div>
                 <div className="nav-notification">
@@ -86,7 +90,7 @@ const Nav = ({ socket }) => {
                         <li className="nav-notification__item">
                             <label className="nav-notification__item-content">
                                 <span className="nav-notification__owner">Mãnh Thú</span>
-                                vừa thêm sản phẩm 
+                                vừa thêm sản phẩm
                                 <span className="nav-notification__product">Iphone12</span>
                                 vào danh sách đấu giá!
                             </label>

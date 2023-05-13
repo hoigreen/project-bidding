@@ -61,7 +61,7 @@ const FundPage = ({ socket }) => {
                         </div>
                         <div className='fund__balence'>
                             <div className='fund__balence-title'>Tổng số dư:</div>
-                            <div className='fund__person-balence'>{userBalance} <span>$</span></div>
+                            <div className='fund__person-balence'>{userBalance.toLocaleString()} <span>VNĐ</span></div>
                         </div>
                     </div>
                     <div className='fund__item fund__tilte_cash'>Số tiền nạp:</div>
@@ -72,7 +72,6 @@ const FundPage = ({ socket }) => {
                     </input>
                     <button className="fund__btn" onClick={handleClickButtonFund}>Nạp tiền</button>
                 </div>
-
             </div>
             <Copyright />
         </div>
