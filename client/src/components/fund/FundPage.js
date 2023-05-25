@@ -27,25 +27,16 @@ const FundPage = ({ socket }) => {
                 setuserBalance(user.balence)
             }
         })
+    }, [users])
 
-    })
-
-    const handleClickRefresh = (e) => {
-        e.preventDefault();
-        window.location.href = window.location.href
-    };
     const handleClickButtonFund = (e) => {
         e.preventDefault();
-        fund();
+        setBalance(Number(prev => prev + balance));
         const userLastBidder = window.localStorage.getItem("usernameLogged")
         socket.emit("fund", { username: userLastBidder, balence: balance })
         window.confirm("Chúc mừng bạn đã nạp tiền thành công vào tài khoản")
-        window.location.href = window.location.href
+        window.location.reload()
     };
-
-    const fund = () => {
-        setBalance(Number(prev => prev + balance));
-    }
 
     return (
         <div>

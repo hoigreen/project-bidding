@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const Nav = ({ socket }) => {
+const Nav = () => {
     const [users, setUser] = useState([])
     const [username, setUserName] = useState('');
     const [userBalance, setBalance] = useState("")
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         const fetchAPIs = () => {
@@ -24,42 +27,12 @@ const Nav = ({ socket }) => {
                 setBalance(user.balence)
             }
         })
-        hanleCheckLogin()
-    })
-
-    const hanleCheckLogin = () => {
-        const account = document.querySelector(".nav__account")
-        if (window.localStorage.getItem('usernameLogged')) {
-            account.innerHTML = `
-                <div class="nav__account-info">
-                    <p class="nav__account-name">${username}</p>
-                    <span class='nav__account-char'>-</span>
-                    <p class="nav__account-balence">${Number(userBalance).toLocaleString() || ""} VNĐ</p>
-                </div>
-                <button class="nav__account-btn nav__account-btn--register hide-on-mobile">
-                    Đăng xuất
-                    <i class="nav__account-btn-icon ti-arrow-right"></i>
-                </button>
-            `
-            const btnLogout = document.querySelector(".nav__account-btn.nav__account-btn--register")
-            btnLogout.addEventListener("click", (e) => { handleLogOut(e) })
-        }
-        else {
-            account.innerHTML = `
-            <button class="nav__account-btn nav__account-btn--login">Đăng nhập</button>
-            <button class="nav__account-btn nav__account-btn--register">Đăng ký</button>
-            `
-            const btnLogin = document.querySelector(".nav__account-btn--login")
-            btnLogin.addEventListener("click", () => { window.location.href = "/" })
-            const btnRegister = document.querySelector(".nav__account-btn--register")
-            btnRegister.addEventListener("click", () => { window.location.href = "/register" })
-        }
-    }
+    },[users])
 
     const handleLogOut = (e) => {
         e.preventDefault();
         if (window.confirm("Bạn muốn đăng xuất tài khoản này!") == true) {
-            window.location.href = "/"
+            navigate("/")
         }
         window.localStorage.removeItem("usernameLogged")
     }
@@ -68,19 +41,19 @@ const Nav = ({ socket }) => {
         <nav id="nav">
             <label className="nav__logo" onClick={(e) => {
                 e.preventDefault();
-                window.location.href = '/home';
+                navigate('/home');
             }}>Đấu giá sản phẩm</label>
 
             <div className="nav__group ">
                 <div className="nav__option hide-on-mobile">
-                    <button className="nav__option-btn" onClick={(e) => { window.location.href = '/bidding'; }}>Đấu giá</button>
-                    <button className="nav__option-btn" onClick={(e) => { window.location.href = '/list'; }}>Sản phẩm</button>
+                    <button className="nav__option-btn" onClick={(e) => { navigate('/bidding') }}>Đấu giá</button>
+                    <button className="nav__option-btn" onClick={(e) => { navigate('/list'); }}>Sản phẩm</button>
                     <button className="nav__option-btn" onClick={(e) => {
                         if (window.localStorage.getItem("usernameLogged")) {
-                            window.location.href = '/fund';
+                            navigate('/fund');
                         } else alert("Vui lòng đăng nhập tài khoản để thực hiện nạp tiền!")
                     }}>Nạp tiền</button>
-                    <button className="nav__option-btn" onClick={(e) => { window.location.href = '/contact'; }}>Liên hệ</button>
+                    <button className="nav__option-btn" onClick={(e) => { navigate('/contact'); }}>Liên hệ</button>
                 </div>
                 <div className="nav-notification">
                     <button className="nav-notification__btn">
@@ -102,11 +75,29 @@ const Nav = ({ socket }) => {
                         </li>
                     </div>
                 </div>
+
                 <div className="nav__account">
+                    {window.localStorage.getItem('usernameLogged') ?
+                        <>
+                            <div className="nav__account-info">
+                                <p className="nav__account-name">{username}</p>
+                                <span className='nav__account-char'>-</span>
+                                <p className="nav__account-balence">{Number(userBalance).toLocaleString() || ""} VNĐ</p>
+                            </div>
+                            <button className="nav__account-btn nav__account-btn--register hide-on-mobile" onClick={handleLogOut}>
+                                Đăng xuất
+                                <i className="nav__account-btn-icon ti-arrow-right"></i>
+                            </button>
+                        </>
+                        : <>
+                            <button className="nav__account-btn nav__account-btn--login" onClick={() => { navigate("/") }}>Đăng nhập</button>
+                            <button className="nav__account-btn nav__account-btn--register" onClick={() => { navigate("/register") }}>Đăng ký</button>
+                        </>
+                    }
                 </div>
             </div>
         </nav>
     );
 };
 
-export default Nav;
+export default memo(Nav);

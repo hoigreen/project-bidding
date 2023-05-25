@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { memo, useState } from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
+import Nav from '../nav/Nav';
+import NavMobile from '../nav/NavMobile';
+import Copyright from '../common/Copyright';
 
-const AddProduct = ({ socket, product }) => {
+const AddProduct = ({ socket }) => {
     const [name, setName] = useState('');
     const [price, setPrice] = useState(0);
     const [time, setTime] = useState(0)
-    
+
+    const navigate = useNavigate()
+
     const getTime = new Date().getTime();
     const currentTime = new Date(getTime);
     const currentHour = currentTime.getHours();
@@ -16,67 +21,75 @@ const AddProduct = ({ socket, product }) => {
 
     const [hour, setHour] = useState(currentHour);
     const [date, setDate] = useState(dateStart);
-    // Set thời gian bắt đầu và kết thúc
+
+
     const [start, setTimeStart] = useState(currentMinute);
     const end = currentMinute + Number(time);
-    const [is_bidded, setIsBidded] = useState(false)
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        socket.emit("addProduct", {
-            name,
-            hour,
-            date,
-            start,
-            time,
-            end,
-            price,
-            owner: localStorage.getItem('usernameLogged'),
-            is_bidded
-        });
-        window.location.href = '/products'
+        if (localStorage.getItem('usernameLogged')) {
+            socket.emit("addProduct", {
+                name,
+                hour,
+                date,
+                start,
+                time,
+                end,
+                price,
+                owner: localStorage.getItem('usernameLogged'),
+                is_bidded: false
+            });
+            navigate('/bidding')
+        } else {
+            alert("Vui lòng đăng nhập để thêm sản phẩm muốn đấu giá!")
+        }
     };
 
     return (
-        <div>
-            <div className="addproduct__container">
-                <h2 className="add-product-title">Thêm một sản phẩm mới</h2>
-                <form className="addProduct__form" onSubmit={handleSubmit}>
-                    <label htmlFor="name" className='add-product-label'>Tên sản phẩm</label>
+        <React.Fragment>
+            <Nav />
+            <NavMobile />
+            <div className="add-product__container">
+                <h2 className="add-product__title">Thêm một sản phẩm mới</h2>
+                <form className="add-product__form" onSubmit={handleSubmit}>
+                    <label htmlFor="name" className='add-product__label'>Tên sản phẩm</label>
                     <input
                         type="text"
+                        autoComplete='off'
                         name="name"
-                        className='add-product-input'
+                        className='add-product__input'
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         required
                     />
 
-                    <label htmlFor="price" className='add-product-label'>Giá khởi điểm</label>
+                    <label htmlFor="price" className='add-product__label'>Giá khởi điểm</label>
                     <input
                         type="number"
                         name="price"
-                        className='add-product-input'
+                        className='add-product__input'
                         value={price}
                         onChange={(e) => setPrice(e.target.value)}
                         required
                     />
 
-                    <label htmlFor="price" className='add-product-label'>Thời gian đấu giá (phút)</label>
+                    <label htmlFor="price" className='add-product__label'>Thời gian đấu giá (phút)</label>
                     <input
                         type="number"
                         name="Time"
-                        className='add-product-input'
+                        className='add-product__input'
                         value={time}
                         onChange={(e) => setTime(e.target.value)}
                         required
                     />
 
-                    <button className="addProduct__cta btn">Thêm sản phẩm</button>
+                    <button className="add-product__btn">Thêm sản phẩm</button>
                 </form>
             </div>
-        </div>
+            <Copyright />
+        </React.Fragment>
     );
 };
 
-export default AddProduct;
+export default memo(AddProduct);

@@ -3,7 +3,7 @@
     {
       "username": "admin0",
       "password": "admin123",
-      "balence": 3283525
+      "balence": 3295533
     },
     {
       "username": "TruongQuocHoi",
@@ -52,6 +52,11 @@
     },
     {
       "username": "mmoo12",
+      "password": "121212",
+      "balence": 0
+    },
+    {
+      "username": "uivi21",
       "password": "121212",
       "balence": 0
     }
@@ -138,6 +143,39 @@
       "owner": "nhom03_test",
       "is_bidded": true,
       "last_bidder": "hgreen"
+    },
+    {
+      "name": "1",
+      "hour": 15,
+      "date": "24/05/2023",
+      "start": 19,
+      "time": "1",
+      "end": 20,
+      "price": "1",
+      "owner": "admin0",
+      "is_bidded": false
+    },
+    {
+      "name": "1",
+      "hour": 22,
+      "date": "24/05/2023",
+      "start": 52,
+      "time": "1",
+      "end": 53,
+      "price": "1",
+      "owner": "admin0",
+      "is_bidded": false
+    },
+    {
+      "name": "1",
+      "hour": 22,
+      "date": "24/05/2023",
+      "start": 53,
+      "time": "1",
+      "end": 54,
+      "price": "1",
+      "owner": "admin0",
+      "is_bidded": false
     }
   ]
 }

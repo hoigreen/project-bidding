@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Copyright from '../common/Copyright';
+import ToastMessage from '../other/ToastMessage';
 
 const RegisterPage = ({ socket }) => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
 
     const navigate = useNavigate();
 
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -16,12 +17,13 @@ const RegisterPage = ({ socket }) => {
             password,
             balence: 0,
         });
-        window.confirm('Chúc mừng bạn đã đăng ký tài khoản thành công!')
         navigate('/');
+        ToastMessage({ title: 'Đăng ký thành công', message: "Chúc mừng bạn đã đăng ký tài khoản thành công!", type: 'success' })
     };
 
     return (
         <div>
+            <div id="toast"></div>
             <label className="login-page__title">Website đấu giá sản phẩm</label>
             <div className="login-page__container">
                 <div className="login-page__panel hide-on-mobile"></div>
@@ -61,7 +63,6 @@ const RegisterPage = ({ socket }) => {
                             minLength={6}
                             placeholder="Password ..." />
 
-
                         <button className="login-page__btn">ĐĂNG KÝ</button>
                     </form>
 
@@ -69,9 +70,7 @@ const RegisterPage = ({ socket }) => {
                     <div className="register__direct">
                         <div>
                             <label className="register__question">Nếu bạn đã có tài khoản rồi?</label>
-                            <a className="register__back-login" onClick={(e) => { window.location.href = '/'; }}>
-                                Quay lại trang đăng nhập
-                            </a>
+                            <a className="register__back-login" onClick={e => navigate("/")}> Quay lại trang đăng nhập</a>
                         </div>
                     </div>
                 </div>

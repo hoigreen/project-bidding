@@ -28,11 +28,11 @@
 }
 
 .bidding__row-data>td {
-    display: none;
+    display: table-cell;
 }
 
 .bidding__row-bidded>td {
-    display: none;
+    display: table-cell;
 }
 
 tr,
@@ -85,11 +85,97 @@ th {
     text-align: center;
 }
 
-/* --------Stylesheet for the AddProducts & BidProducts component ------*/
+/* --------Stylesheet for the Add Products ------*/
+.add-product__container {
+    margin-top: 80px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-product__title {
+    color: var(--text-highlight-color);
+    font-size: 3.2rem;
+    font-weight: bold;
+    margin: 20px 0 20px 0;
+}
+
+.add-product__label {
+    width: 80%;
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.add-product__input {
+    display: block;
+    width: 80%;
+    font-size: 2.4rem;
+    margin: 12px 0 20px;
+    border: 1px solid var(--border-color);
+    padding: 8px 12px;
+    border-radius: 12px;
+    outline: none;
+    text-indent: 10px;
+}
+
+.add-product__input:focus {
+    border: 1px solid green;
+}
 
 
-.addbidding__container,
+.add-product__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 20px auto;
+}
+
+.add-product__btn {
+    padding: 12px 20px;
+    margin: 20px auto;
+    font-size: 2.2rem;
+    outline: none;
+    border: none;
+    color: #fff;
+    background-color: var(--primary-color);
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.bid-product-label {
+    width: 960px;
+    font-size: 2.4rem;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.bidbidding__name {
+    font-weight: 600;
+    color: green;
+    padding-left: 10px;
+}
+
+.bid-product-price-label {
+    width: 960px;
+    font-size: 2.4rem;
+    margin: 10px 0;
+    display: block;
+    align-items: center;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* --------Stylesheet for the Bid Products ------*/
+/* .add-product__container,
 .bidbidding__container {
+    margin-top: 80px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -169,4 +255,4 @@ th {
     align-items: center;
     padding: 20px 0;
     text-align: center;
-}
+} */

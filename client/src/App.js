@@ -13,7 +13,6 @@ import ListProduct from './components/list/ListProduct';
 import ContactPage from './components/contact/ContactPage';
 import FundPage from './components/fund/FundPage';
 
-// const socket = socketIO.connect('http://localhost:4000');
 const socket = socketIO.connect('http://localhost:4000');
 
 function App() {

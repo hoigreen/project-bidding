@@ -4,7 +4,7 @@ import Nav from "../nav/Nav"
 import Copyright from "../common/Copyright"
 import NavMobile from "../nav/NavMobile"
 
-const Listlist = () => {
+const List = () => {
     const [products, setProducts] = useState([])
 
     const [loading, setLoading] = useState(true)
@@ -40,15 +40,20 @@ const Listlist = () => {
                                 <div className='list__item-img'></div>
                                 <h3 className='list__item-title'>Loading...</h3>
                                 <p className='list__item-price'>Loading...</p>
-                            </div> :
-                            products.map((list, index) => (
-                                <div className='list__item'>
-                                    <div className='list__item-img'></div>
-                                    <h3 className='list__item-title'>{list.name}</h3>
-                                    <p className='list__item-price'>Giá tiền: {list.price} $</p>
-                                    <div className='list__item-favorite'>Yêu thích</div>
-                                </div>
-                            ))}
+                            </div>
+                            : products.map((list, index) => {
+                                if (list.is_bidded)
+                                    return (
+                                        <div className='list__item'>
+                                            <div className='list__item-img'></div>
+                                            <h3 className='list__item-title'>{list.name}</h3>
+                                            <p className='list__item-price'>Giá tiền: {list.price} $</p>
+                                            <div className='list__item-favorite'>Yêu thích</div>
+                                        </div>
+
+                                    )
+                            })
+                        }
                     </div>
                 </div>
             </div>
@@ -57,4 +62,4 @@ const Listlist = () => {
     )
 }
 
-export default Listlist;
+export default List;
