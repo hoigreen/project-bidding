@@ -10,7 +10,7 @@ const Nav = () => {
 
     useEffect(() => {
         const fetchAPIs = () => {
-            fetch("http://localhost:4000/api")
+            fetch("https://bidding-server.onrender.com/api")
                 .then(res => res.json())
                 .then(data => {
                     setUser(data.users)
