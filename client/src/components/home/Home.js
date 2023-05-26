@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
 import { Link } from "react-router-dom"
 import Nav from '../nav/Nav';
 import Copyright from '../common/Copyright';
 import NavMobile from '../nav/NavMobile';
 
-const MainPage = ({ socket }) => {
+const Home = ({socket}) => {
     return (
-        <div>
+        <React.Fragment>
             <Nav socket={socket} />
             <NavMobile />
             <div className="home__container">
@@ -24,7 +23,6 @@ const MainPage = ({ socket }) => {
                         <p className="home__items-description">Đưa ra giá mà bạn muốn có nó</p>
                     </Link>
 
-
                     <div className="home__sidebar-three">
                         <Link to="/fund" className="home__items home__fund">
                             <label className="home__items-label">Nạp tiền</label>
@@ -39,8 +37,8 @@ const MainPage = ({ socket }) => {
                 </div>
             </div>
             <Copyright />
-        </div>
+        </React.Fragment>
     );
 }
 
-export default MainPage;
+export default Home;

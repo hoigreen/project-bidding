@@ -10,28 +10,31 @@
 
 .bidding__title {
     font-size: 3.2rem;
+    line-height: 3.6rem;
     font-weight: 600;
-    margin: 20px 0 20px 0;
+    margin: 20px 0 30px 0;
+    color: var(--text-highlight-color);
+    user-select: none;
 }
 
 .bidding__table-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     width: 95%;
     margin: 0 0 30px 0;
     border-collapse: collapse;
 }
 
-.bidding__table-container table {
+.bidding__table {
     width: 95%;
     border: 1px solid #576f72;
     margin: 0 auto;
     border-collapse: collapse;
+    overflow-y: scroll;
 }
 
-.bidding__row-data>td {
-    display: table-cell;
-}
-
-.bidding__row-bidded>td {
+.bidding__table-row>td {
     display: table-cell;
 }
 
@@ -40,22 +43,19 @@ td,
 th {
     border: 1px solid #576f72;
     text-align: center;
-    padding: 20px;
-    font-size: 1.8rem;
+    padding: 16px 10px;
+    font-size: 1.6rem;
 }
 
 .bidding__body-data--empty {
     padding: 20px;
     font-size: 2rem;
-    text-align: center;
+    text-align: left;
     width: 95%;
-    border-bottom: 1px solid #576f72;
-    border-left: 1px solid #576f72;
-    border-right: 1px solid #576f72;
 
 }
 
-.editIcon {
+.edit-icon {
     color: green;
     height: 20px;
     cursor: pointer;
@@ -64,26 +64,11 @@ th {
     border: none;
 }
 
-.editIcon:hover {
+.edit-icon:hover {
     cursor: pointer;
     opacity: 0.8;
 }
 
-.bidding__table-container {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-.products__cta {
-    width: 30%;
-    padding: 20px;
-    color: #fff;
-    margin: 60px 0;
-    border-radius: 10px;
-    text-decoration: none;
-    text-align: center;
-}
 
 /* --------Stylesheet for the Add Products ------*/
 .add-product__container {
@@ -147,34 +132,8 @@ th {
     cursor: pointer;
 }
 
-.bid-product-label {
-    width: 960px;
-    font-size: 2.4rem;
-    margin: 10px 0;
-    display: flex;
-    align-items: center;
-    padding: 20px 0;
-}
-
-.bidbidding__name {
-    font-weight: 600;
-    color: green;
-    padding-left: 10px;
-}
-
-.bid-product-price-label {
-    width: 960px;
-    font-size: 2.4rem;
-    margin: 10px 0;
-    display: block;
-    align-items: center;
-    padding: 20px 0;
-    text-align: center;
-}
-
 /* --------Stylesheet for the Bid Products ------*/
-/* .add-product__container,
-.bidbidding__container {
+.bid-product__container {
     margin-top: 80px;
     width: 100%;
     display: flex;
@@ -183,35 +142,14 @@ th {
     justify-content: center;
 }
 
-.add-product-title,
-.bid-product-title {
+.bid-product__title {
+    color: var(--text-highlight-color);
     font-size: 3.2rem;
-    font-weight: 600;
+    font-weight: bold;
     margin: 20px 0 20px 0;
 }
 
-.add-product-label {
-    width: 960px;
-    font-size: 2.4rem;
-    font-weight: 600;
-    margin: 10px 0;
-}
-
-.add-product-input {
-    display: block;
-    width: 80%;
-    font-size: 2.4rem;
-    margin: 10px 0;
-}
-
-.addbidding__container h2,
-.bidbidding__container h2 {
-    margin-bottom: 30px;
-
-}
-
-.addbidding__form,
-.bidbidding__form {
+.bid-product__form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -220,39 +158,48 @@ th {
     margin: 20px auto;
 }
 
-.addbidding__cta,
-.bidbidding__cta {
-    width: 200px;
-    padding: 10px;
-    font-size: 2rem;
+.bid-product__form-group {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0 20px;
+}
+
+.bid-product__form-label {
+    display: block;
+    width: 80%;
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.bid-product__form-name {
+    color: blue;
+    font-size: 3rem;
+    line-height: 3.4rem;
+}
+
+.bid-product__form-input {
+    display: block;
+    width: 80%;
+    font-size: 2.4rem;
+    margin: 12px 0 20px;
+    border: 1px solid var(--border-color);
+    padding: 8px 12px;
+    border-radius: 12px;
+    outline: none;
+    text-indent: 10px;
+}
+
+.bid-product__btn {
+    padding: 12px 30px;
+    margin: 10px auto 20px;
+    font-size: 2.2rem;
     outline: none;
     border: none;
     color: #fff;
-    background-color: rgb(67, 143, 67);
+    background-color: var(--primary-color);
+    border-radius: 12px;
     cursor: pointer;
 }
-
-.bid-product-label {
-    width: 960px;
-    font-size: 2.4rem;
-    margin: 10px 0;
-    display: flex;
-    align-items: center;
-    padding: 20px 0;
-}
-
-.bidbidding__name {
-    font-weight: 600;
-    color: green;
-    padding-left: 10px;
-}
-
-.bid-product-price-label {
-    width: 960px;
-    font-size: 2.4rem;
-    margin: 10px 0;
-    display: block;
-    align-items: center;
-    padding: 20px 0;
-    text-align: center;
-} */

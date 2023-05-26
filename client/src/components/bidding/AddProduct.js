@@ -1,46 +1,35 @@
 import React, { memo, useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Nav from '../nav/Nav';
 import NavMobile from '../nav/NavMobile';
 import Copyright from '../common/Copyright';
 
+
 const AddProduct = ({ socket }) => {
     const [name, setName] = useState('');
     const [price, setPrice] = useState(0);
-    const [time, setTime] = useState(0)
+    const [minutes, setMinutes] = useState(0)
 
     const navigate = useNavigate()
 
-    const getTime = new Date().getTime();
-    const currentTime = new Date(getTime);
-    const currentHour = currentTime.getHours();
-    const currentMinute = currentTime.getMinutes();
-
-    const currentTimestamp = Date.now()
-    const dateStart = new Intl.DateTimeFormat('vi-VN', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(currentTimestamp)
-
-    const [hour, setHour] = useState(currentHour);
-    const [date, setDate] = useState(dateStart);
-
-
-    const [start, setTimeStart] = useState(currentMinute);
-    const end = currentMinute + Number(time);
+    const addMinutes = (date, minutes) => {
+        return new Date(date.getTime() + minutes * 60000);
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const date = new Date();
         if (localStorage.getItem('usernameLogged')) {
             socket.emit("addProduct", {
-                name,
-                hour,
-                date,
-                start,
-                time,
-                end,
-                price,
                 owner: localStorage.getItem('usernameLogged'),
+                name,
+                timeStart: `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`,
+                timeEnd: addMinutes(date, Number(minutes)).toJSON(),
+                minutes,
+                price,
                 is_bidded: false
             });
-            navigate('/bidding')
+            window.location.href = '/bidding'
         } else {
             alert("Vui lòng đăng nhập để thêm sản phẩm muốn đấu giá!")
         }
@@ -77,10 +66,10 @@ const AddProduct = ({ socket }) => {
                     <label htmlFor="price" className='add-product__label'>Thời gian đấu giá (phút)</label>
                     <input
                         type="number"
-                        name="Time"
+                        name="minutes"
                         className='add-product__input'
-                        value={time}
-                        onChange={(e) => setTime(e.target.value)}
+                        value={minutes}
+                        onChange={(e) => setMinutes(e.target.value)}
                         required
                     />
 

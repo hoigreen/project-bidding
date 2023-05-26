@@ -5,6 +5,10 @@ import Copyright from '../common/Copyright';
 import ToastMessage from '../other/ToastMessage';
 
 const Login = () => {
+    if (window.localStorage.getItem('usernameLogged')) {
+        window.location.href = "/home"
+    }
+    
     const [users, setUsers] = useState([])
     const [details, setDetails] = useState({ username: "", password: "" })
 
@@ -12,7 +16,7 @@ const Login = () => {
 
     useEffect(() => {
         const fetchAPI = () => {
-            fetch("https://bidding-server.onrender.com/api").then(res => res.json()).then(data => {
+            fetch("http://localhost:4000/api").then(res => res.json()).then(data => {
                 setUsers(data.users)
             })
         }

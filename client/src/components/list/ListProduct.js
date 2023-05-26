@@ -6,18 +6,17 @@ import NavMobile from "../nav/NavMobile"
 
 const List = () => {
     const [products, setProducts] = useState([])
-
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         const fetchProducts = () => {
-            fetch("https://bidding-server.onrender.com/api").then(res => res.json()).then(data => {
+            fetch("http://localhost:4000/api").then(res => res.json()).then(data => {
                 setProducts(data.products)
                 setLoading(false)
             })
         }
         fetchProducts()
-    }, [])
+    }, [products])
 
     return (
         <div>
@@ -47,7 +46,7 @@ const List = () => {
                                         <div className='list__item'>
                                             <div className='list__item-img'></div>
                                             <h3 className='list__item-title'>{list.name}</h3>
-                                            <p className='list__item-price'>Giá tiền: {list.price} $</p>
+                                            <p className='list__item-price'>Giá tiền: {list.price} VNĐ</p>
                                             <div className='list__item-favorite'>Yêu thích</div>
                                         </div>
 

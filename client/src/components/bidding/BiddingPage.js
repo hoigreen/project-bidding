@@ -1,170 +1,161 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useEffect, useState } from 'react'
 import EditButton from "../other/EditButton"
-import TimeEnd from '../other/TimeEnd'
-import TimeStart from '../other/TimeStart'
-import { Link, useNavigate } from "react-router-dom"
 import Nav from '../nav/Nav'
 import NavMobile from '../nav/NavMobile'
 import Copyright from '../common/Copyright'
 
 const BiddingPage = ({ socket }) => {
-    const [users, setUser] = useState([])
-    const [fee, setFee] = useState()
-
-    const navigate = useNavigate()
-
-
     const [products, setProducts] = useState([])
-    const [products2, setProducts2] = useState([])
-    const [loading, setLoading] = useState(true)
-
-    const [is_bidded, setIsBidded] = useState(false)
-
-    const getTime = new Date().getTime();
-    const currentTime = new Date(getTime);
-    const currentHours = currentTime.getHours(); // lấy ra gio
-    const currentMinute = currentTime.getMinutes(); // lấy ra phút
+    const [boolExists, setBoolExists] = useState(false)
+    var now = new Date()
 
     useEffect(() => {
         const fetchAPI = () => {
-            fetch("https://bidding-server.onrender.com/api").then(res => res.json()).then(data => {
+            fetch("http://localhost:4000/api").then(res => res.json()).then(data => {
                 setProducts(data.products)
-                setUser(data.users)
-                setLoading(false)
             })
         }
         fetchAPI()
-        test()
-    }, [products2, fee])
-
-    function test() {
-        socket.on('addProductResponse', data => {
-            setProducts2([data])
-        })
-    }
+    }, [products])
 
     useEffect(() => {
-        {
-            socket.on('bidProductResponse', data => {
-                setFee(data)
-                window.location.href = window.location.href
-            })
+        products.map((product, index) => {
+            if (now.getTime() >= minusMinutes(new Date(product.timeEnd), Number(product.minutes)) && now.getTime() <= new Date(product.timeEnd).getTime()) {
+                setBoolExists(true)
+            }
+        })
+    }, [products])
 
-            // Kiểm tra sản phẩm đang đấu giá
-            // products.map((product, index) => {
-            //     if (Number(product.start) == currentTime.getMinutes() && Number(product.hour) == Number(currentHours)) {
-            //         var timeCount = (product.end - product.start) * 10;
-            //         const x = setInterval(() => {
-            //             timeCount--;
-            //             const getRowOfTimeCount = document.querySelectorAll('tr')[index + 1];
-            //             const timeCountElement = getRowOfTimeCount.querySelectorAll('td')[3];
-            //             const getElementBid = getRowOfTimeCount.querySelectorAll('td')[6]
-            //             getElementBid.style.display = 'block';
-            //             getElementBid.style.border = 'none';
+    // useEffect(() => {
+    //     products.map((product, index) => {
+    //         if (now.getTime() >= minusMinutes(new Date(product.timeEnd), Number(product.minutes)) && now.getTime() <= new Date(product.timeEnd).getTime()) {
+    //             handleCountTimeLeft(String(new Date(product.timeEnd)))
+    //         }
+    //     })
+    // }, [])
 
-            //             timeCountElement.innerHTML = `<span>${timeCount} giây</span>`
+    const minusMinutes = (date, minutes) => {
+        return new Date(date.getTime() + 1 * 1000 - minutes * 60000);
+    }
 
-            //             if (timeCount == 0) {
-            //                 if (product.last_bidder != undefined) {
-            //                     alert('Chúc mừng người chiến thắng của sản phẩm ' + product.name + ' là ' + product.last_bidder)
-            //                     socket.on('bidProductResponse', data => {
-            //                         setIsBidded(true);
-            //                         window.location.href = window.location.href
-            //                     })
+    // setInterval(() => {
+    //     products.map((product, index) => {
+    //         if (now.getHours() === new Date(product.timeEnd).getHours() &&
+    //             now.getMinutes() === new Date(product.timeEnd).getMinutes() &&
+    //             now.getSeconds() === new Date(product.timeEnd).getHours()) {
+    //             // checkTimeLeft(String(new Date(product.timeEnd)));
+    //             console.log(1);
+    //         }
+    //         // else{
+    //         //     return;
+    //         // }
+    //     })
 
-            //                     // users
-            //                     // socket.emit("bidProduct", {is_bidded})
-            //                     // const newOwner = product.last_bidder;
-            //                     // socket.emit("setOwner", { owner: newOwner });
-            //                     window.location.href = window.location.href
-            //                     getElementBid.style.display = 'none';
-            //                 }
-            //                 else {
-            //                     alert('Sản phẩm ' + product.name + ' đã kết thúc thời gian đấu giá mà không tìm được người chiến thắng!')
-            //                     window.location.href = window.location.href
-            //                 }
-            //             }
+    // }, 1000)
 
-            //             if (timeCount < 0) {
-            //                 clearInterval(x)
-            //             }
-            //         }, 1000)
+    // useEffect(() => {
+    // }, [products]);
 
-            //     }
-            // })
+    const handleCountTimeLeft = (time) => {
+        const countDown = new Date(time).getTime();
+        const interval = setInterval(() => {
+            var now = new Date().getTime();
+            var timeLeft = countDown - now;
 
+            if (timeLeft <= 1000) {
+                window.alert(123);
+            }
 
-            // // show danh sách sản phẩm đang đấu giá
-            // products.map((product, index) => {
-            //     if (Number(product.start) == currentTime.getMinutes() && Number(product.hour) == Number(currentHours)) {
-            //         const getParagraphEmpty = document.querySelector('.bidding__body-data--empty');
-            //         getParagraphEmpty.style.display = 'none';
-            //         const getRowOfProductData = document.querySelectorAll('tr')[index + 1];
-            //         const tdElement0 = getRowOfProductData.querySelectorAll('td')[0];
-            //         tdElement0.style.display = "table-cell";
-            //         const tdElement1 = getRowOfProductData.querySelectorAll('td')[1];
-            //         tdElement1.style.display = "table-cell";
-            //         const tdElement2 = getRowOfProductData.querySelectorAll('td')[2];
-            //         tdElement2.style.display = "table-cell";
-            //         const tdElement3 = getRowOfProductData.querySelectorAll('td')[3];
-            //         tdElement3.style.display = "table-cell";
-            //         const tdElement4 = getRowOfProductData.querySelectorAll('td')[4];
-            //         tdElement4.style.display = "table-cell";
-            //         const tdElement5 = getRowOfProductData.querySelectorAll('td')[5];
-            //         tdElement5.style.display = "table-cell";
-            //         const tdElement6 = getRowOfProductData.querySelectorAll('td')[6];
-            //         tdElement6.style.display = "table-cell";
-            //     }
-            // })
+            if (timeLeft <= 0) {
+                clearInterval(interval)
+            }
+        }, 1000)
+    }
+
+    const checkTimeLeft = (time) => {
+        const countDown = new Date(time).getTime();
+        var now = new Date().getTime();
+        console.log("kết thúc")
+        if (countDown <= now) {
+            return true;
         }
-    })
+        else
+            return false
+    }
+
+    //             //     if (timeCount == 0) {
+    //             //         if (product.last_bidder != undefined) {
+    //             //             alert('Chúc mừng người chiến thắng của sản phẩm ' + product.name + ' là ' + product.last_bidder)
+    //             //             socket.on('bidProductResponse', data => {
+    //             //                 // setIsBidded(true);
+    //             //                 window.location.href = window.location.href
+    //             //             })
+
+    //             //             // users
+    //             //             // socket.emit("bidProduct", {is_bidded})
+    //             //             // const newOwner = product.last_bidder;
+    //             //             // socket.emit("setOwner", { owner: newOwner });
+    //             //             window.location.href = window.location.href
+    //             //             getElementBid.style.display = 'none';
+    //             //         }
+    //             //         else {
+    //             //             alert('Sản phẩm ' + product.name + ' đã kết thúc thời gian đấu giá mà không tìm được người chiến thắng!')
+    //             //             window.location.href = window.location.href
+    //             //         }
+    //             //     }
+    //         }
+    //     })
+    // }, [products])
+
 
 
     return (
-        <div>
+        <React.Fragment>
             <Nav />
             <NavMobile />
             <div className="bidding__container">
                 <label className='bidding__title'>Sản phẩm đang đấu giá</label>
                 <div className='bidding__table-container'>
-                    <table>
-                        <thead>
+                    <table className='bidding__table'>
+                        <thead className='bidding__table-header'>
                             <tr style={{ backgroundColor: '#d6f5d6' }}>
                                 <th>Chủ sở hữu</th>
                                 <th>Tên sản phẩm</th>
-                                <th>Thời gian mở phiên đấu giá</th>
-                                <th>Thời gian đấu giá còn lại</th>
-                                <th>Giá sản phẩm</th>
+                                <th>Thời gian kết thúc</th>
+                                <th>Giá</th>
                                 <th>Người đấu giá cuối</th>
                                 <th>Đấu giá</th>
                             </tr>
                         </thead>
-                        <tbody className="bidding__body-data">
-                            {loading ? <tr><td>Loading...</td></tr> :
+
+                        <tbody className="bidding__table-body">
+                            {boolExists ?
                                 products.map((product, index) => {
-                                    if (Number(product.start) == currentTime.getMinutes() && Number(product.hour) == Number(currentHours)) {
+                                    if (now.getTime() >= minusMinutes(new Date(product.timeEnd), Number(product.minutes)) && now.getTime() <= new Date(product.timeEnd).getTime()) {
                                         return (
-                                            <tr className="bidding__row-data" key={index}>
+                                            <tr className="bidding__table-row" key={index}>
                                                 <td style={{ color: "#6600cc", fontWeight: 600, fontSize: 16 }}>{product.owner}</td>
-                                                <td style={{ textAlign: "left", lineHeight: 1.5 }}>{product.name}</td>
-                                                <td>{product.date} {product.hour}<TimeStart product={product} /></td>
-                                                <td>--</td>
-                                                <td style={{ color: "red", fontWeight: 600 }}>{product.price} $</td>
-                                                <td style={{ background: "#ffe6e6" }}>{product.last_bidder || "None"}</td>
-                                                <td style={{ display: "none" }}>{<EditButton socket={socket} product={product} />}</td>
+                                                <td style={{ textAlign: "left", lineHeight: 1.6 }}>{product.name}</td>
+                                                <td>{String(new Date(product.timeEnd).getHours()) + ":" + String(new Date(product.timeEnd).getMinutes()) + ":" + String(new Date(product.timeEnd).getSeconds())} {product.timeStart}</td>
+                                                <td style={{ color: "red", fontWeight: 600 }}>{Number(product.price).toLocaleString()} VNĐ</td>
+                                                <td style={{ background: "#ffe6e6" }}>{product.last_bidder || "Không có"}</td>
+                                                <td >{<EditButton product={product} />}</td>
                                             </tr>
                                         )
                                     }
-                                })}
+                                })
+                                : <tr className="bidding__body-data--empty">
+                                    <td style={{ border: "none" }}>Danh sách trống ...</td>
+                                </tr>
+                            }
                         </tbody>
                     </table>
-                    <p className="bidding__body-data--empty">Danh sách trống</p>
 
-                    <button className='add-product__btn' onClick={(() => navigate("/bidding/add"))}>Thêm sản phẩm mới</button>
+                    <button className='add-product__btn' onClick={(() => window.location.href = "/bidding/add")}>Thêm sản phẩm mới</button>
                 </div>
             </div>
             <Copyright />
-        </div>
+        </React.Fragment>
     )
 }
 

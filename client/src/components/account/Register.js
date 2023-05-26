@@ -9,6 +9,9 @@ const RegisterPage = ({ socket }) => {
 
     const navigate = useNavigate();
 
+    if (window.localStorage.getItem('usernameLogged')) {
+        window.location.href = "/home"
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();

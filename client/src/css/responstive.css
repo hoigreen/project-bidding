@@ -91,16 +91,55 @@
 
     .nav__logo {
         padding-left: 0;
-        font-size: 2.2rem;
+        font-size: 2rem;
+        line-height: 2.4rem;
+    }
+
+    .nav-notification__btn {
+        padding: 8px 0px;
+    }
+
+    .nav__account {
+        gap: 10px;
     }
 
     .nav__account-name {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
     }
 
     .nav__account-balence {
-        font-size: 1.6rem
+        font-size: 1.2rem
     }
+
+    .nav__account-btn {
+        font-size: 1.2rem;
+    }
+
+    /* Responsive Home */
+    .home__container {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 60px;
+    }
+
+    .home__items {
+        margin: 6px;
+    }
+
+    .home__content {
+        padding: 0;
+    }
+
+    .home__items-label {
+        font-size: 2.6rem;
+    }
+
+    .home__items-description {
+        font-size: 1.2rem;
+    }
+
+
+    /* Responsive ListPage */
 
     .list__title {
         line-height: 3rem;
@@ -128,8 +167,12 @@
         width: calc(50% - 16px);
     }
 
-    /* ------------fund Page------------------ */
+    /* ------------Bididng Page------------------ */
+    .bidding__table-container {
+        overflow: scroll;
+    }
 
+    /* ------------fund Page------------------ */
     .fund__header {}
 
     .fund__box {

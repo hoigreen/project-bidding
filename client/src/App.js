@@ -13,8 +13,8 @@ import ListProduct from './components/list/ListProduct';
 import ContactPage from './components/contact/ContactPage';
 import FundPage from './components/fund/FundPage';
 
+const socket = socketIO.connect('http://localhost:4000');
 // const socket = socketIO.connect('https://bidding-server.onrender.com');
-const socket = socketIO.connect('https://bidding-server.onrender.com');
 
 function App() {
     return (
@@ -23,7 +23,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Login socket={socket} />} />
                     <Route path="/register" element={<Register socket={socket} />} />
-                    <Route path="/home" element={<Home socket={socket} />} />
+                    <Route path="/home" element={<Home />} />
                     <Route path="/list" element={<ListProduct socket={socket} />} />
 
                     <Route path="/bidding" element={<BiddingPage socket={socket} />} />
@@ -31,7 +31,7 @@ function App() {
                     <Route path="/bidding/bid/:name/:price" element={<BidProduct socket={socket} />} />
 
                     <Route path="/fund" element={<FundPage socket={socket} />} />
-                    
+
                     <Route path="/contact" element={<ContactPage socket={socket} />} />
                 </Routes>
             </div>

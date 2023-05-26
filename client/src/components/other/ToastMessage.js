@@ -1,5 +1,3 @@
-import React from 'react'
-
 const ToastMessage = ({ title = "", message = "", type = "info", duration = 3000 }) => {
     const main = document.getElementById("toast");
     if (main) {
