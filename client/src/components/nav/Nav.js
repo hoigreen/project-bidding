@@ -2,61 +2,50 @@ import React, { useState, useEffect, memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import socketIO from 'socket.io-client';
 
-const socket = socketIO.connect('http://localhost:4000');
+const socket = socketIO.connect('https://bidding-server.onrender.com');
+
 const Nav = () => {
     const [users, setUser] = useState([])
-    const [notification, setNotification] = useState('');
 
     const navigate = useNavigate()
 
 
     useEffect(() => {
         const fetchAPIs = () => {
-            fetch("http://localhost:4000/api")
-                .then(res => res.json())
-                .then(data => {
-                    setUser(data.users)
-                })
+            fetch("https://bidding-server.onrender.com/api").then(res => res.json()).then(data => {
+                setUser(data.users)
+            })
                 .catch(console.error);
         }
         fetchAPIs()
     }, [])
 
+    // Thông báo đấu giá sản phẩm
     useEffect(() => {
         socket.on('bidProductResponse', (data) => {
-            document.querySelector(".nav__notification").style.display = "block";
-            document.querySelector(".nav__notification").style.animation = `notiAppear ease .5s, fadeOut linear 1s 5s forwards`;
-            setNotification(
-                `Tài khoản ${data.last_bidder} vừa đấu giá mua sản phẩm ${data.name} là $${Number(data.amount).toLocaleString()}`
-            );
+            window.alert(`Tài khoản ${data.last_bidder} vừa đấu giá mua sản phẩm ${data.name} là $${Number(data.amount).toLocaleString()}`)
         });
     }, [socket]);
 
+    // Thông báo thêm sản phẩm đáu giá mới
     useEffect(() => {
         socket.on('addProductResponse', (data) => {
-            document.querySelector(".nav__notification").style.display = "block";
-            document.querySelector(".nav__notification").style.animation = `notiAppear ease .5s, fadeOut linear 1s 5s forwards`;
-            setNotification(
-                `${data.owner} đã đấu giá sản phẩm ${data.name} với giá trị ${Number(data.price).toLocaleString()} VNĐ`
-            );
+            window.alert(`${data.owner} đã đấu giá sản phẩm ${data.name} với giá trị ${Number(data.price).toLocaleString()} VNĐ`)
         });
+
     }, [socket]);
 
     const handleLogOut = (e) => {
         e.preventDefault();
         if (window.confirm("Bạn muốn đăng xuất tài khoản này!") == true) {
+            window.localStorage.removeItem("usernameLogged")
             navigate("/")
         }
-        window.localStorage.removeItem("usernameLogged")
     }
 
     return (
         <nav id="nav">
             <label className="nav__logo" onClick={(e) => { navigate('/home'); }}>Đấu giá sản phẩm</label>
-
-            <div className="nav__notification">
-                <div className="nav__notification-content">{notification}</div>
-            </div>
 
             <div className="nav__group">
                 <div className="nav__option hide-on-mobile">
@@ -69,27 +58,6 @@ const Nav = () => {
                     }}>Nạp tiền</button>
                     <button className="nav__option-btn" onClick={(e) => { navigate('/contact'); }}>Liên hệ</button>
                 </div>
-
-                {/* <div className="nav-notification">
-                    <button className="nav-notification__btn">
-                        <i className="nav-notification__icon ti-bell"></i>
-                    </button>
-                    <div className="nav-notification__box">
-                        <li className="nav-notification__item">
-                            <label className="nav-notification__item-content">
-                                <span className="nav-notification__owner">Mãnh Thú</span>
-                                vừa thêm sản phẩm
-                                <span className="nav-notification__product">Iphone12</span>
-                                vào danh sách đấu giá!
-                            </label>
-                            <p className="nav-notification__item-time">now</p>
-                        </li>
-                        <li className="nav-notification__item">
-                            <label className="nav-notification__item-content">ManhThu</label>
-                            <p className="nav-notification__item-time">now</p>
-                        </li>
-                    </div>
-                </div> */}
 
                 <div className="nav__account">
                     {window.localStorage.getItem('usernameLogged') ?

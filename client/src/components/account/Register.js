@@ -73,7 +73,7 @@ const RegisterPage = ({ socket }) => {
                     <div className="register__direct">
                         <div>
                             <label className="register__question">Nếu bạn đã có tài khoản rồi?</label>
-                            <a className="register__back-login" onClick={e => navigate("/")}> Quay lại trang đăng nhập</a>
+                            <a className="register__back-login" onClick={e => navigate("/")}> Đăng nhập</a>
                         </div>
                     </div>
                 </div>

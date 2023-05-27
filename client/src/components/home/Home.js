@@ -4,10 +4,10 @@ import Nav from '../nav/Nav';
 import Copyright from '../common/Copyright';
 import NavMobile from '../nav/NavMobile';
 
-const Home = ({socket}) => {
+const Home = () => {
     return (
         <React.Fragment>
-            <Nav socket={socket} />
+            <Nav />
             <NavMobile />
             <div className="home__container">
                 <Link to="/list" className="home__items home__sidebar-one">

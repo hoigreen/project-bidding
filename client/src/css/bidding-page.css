@@ -32,6 +32,7 @@
     margin: 0 auto;
     border-collapse: collapse;
     overflow-y: scroll;
+    min-width: 900px;
 }
 
 .bidding__table-row>td {

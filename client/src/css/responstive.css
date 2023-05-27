@@ -59,8 +59,25 @@
         height: unset;
     }
 
+    .login-page__title {
+        font-size: 3rem;
+    }
+
     .login-page__col {
         width: 100%;
+    }
+
+    .login-page__label-login {
+        font-size: 2.8rem;
+        line-height: 3.2rem;
+    }
+
+    .login-page__label {
+        font-size: 1.6rem;
+    }
+
+    .login-page__input {
+        font-size: 1.4rem;
     }
 
     .login-page__btn {
@@ -120,6 +137,8 @@
         display: flex;
         flex-direction: column;
         margin-bottom: 60px;
+
+        overflow-y: scroll;
     }
 
     .home__items {
@@ -131,11 +150,14 @@
     }
 
     .home__items-label {
-        font-size: 2.6rem;
+        font-size: 2.2rem;
+        padding: 10px 0;
     }
 
     .home__items-description {
         font-size: 1.2rem;
+        padding: 6px 0 12px;
+        line-height: 1.6rem;
     }
 
 
@@ -165,11 +187,20 @@
 
     .list__item {
         width: calc(50% - 16px);
+        height: 300px;
+    }
+
+    .list__item-img {
+        height: 60%
     }
 
     /* ------------Bididng Page------------------ */
     .bidding__table-container {
-        overflow: scroll;
+        overflow-x: scroll;
+    }
+
+    .bidding__body-data--empty {
+        display: none;
     }
 
     /* ------------fund Page------------------ */

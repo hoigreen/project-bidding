@@ -13,7 +13,7 @@ const FundPage = ({ socket }) => {
 
     useEffect(() => {
         const fetchAPI = () => {
-            fetch("http://localhost:4000/api").then(res => res.json()).then(data => {
+            fetch("https://bidding-server.onrender.com/api").then(res => res.json()).then(data => {
                 setUser(data.users)
             })
         }

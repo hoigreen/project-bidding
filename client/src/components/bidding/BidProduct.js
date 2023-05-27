@@ -32,7 +32,6 @@ const BidProduct = ({ socket }) => {
                         <label className='bid-product__form-label'>Tên sản phẩm muốn đấu giá:</label>
                         <h3 className='bid-product__form-name'> {name}</h3>
                     </div>
-
                     <label htmlFor='amount' className='bid-product__form-label'>Giá tiền bạn muốn đấu:</label>
                     {error && <p style={{ color: "red", fontSize: "2rem", fontWeight: "bold" }}>Giá đặt phải lớn hơn giá: {price} VNĐ</p>}
                     <input type="number" name='amount' value={amount} onChange={e => setAmount(e.target.value)} className='bid-product__form-input' required />
