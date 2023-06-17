@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300;400;500;600;700&display=swap');
 @import url('./assets/font/themify-icons/themify-icons.css');
 
-@import url("./assets/styles/toast-message.css");
+@import url("./styles/toast-message.css");
 @import url("./styles/responstive.css");
 
 :root {
