@@ -1,16 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300;400;500;600;700&display=swap');
-@import url('./font/themify-icons/themify-icons.css');
+@import url('./assets/font/themify-icons/themify-icons.css');
 
-@import url("./css/toast-message.css");
-@import url("./css/nav.css");
-@import url("./css/home-page.css");
-@import url("./css/login-register.css");
-@import url("./css/list.css");
-@import url("./css/fund-page.css");
-@import url("./css/bidding-page.css");
-@import url("./css/contact.css");
-
-@import url("./css/responstive.css");
+@import url("./assets/styles/toast-message.css");
+@import url("./styles/responstive.css");
 
 :root {
     --primary-color: #39ba18;
@@ -62,17 +54,3 @@ body::-webkit-scrollbar {
 }
 
 
-#copyright {
-    display: block;
-    position: fixed;
-    bottom: 0;
-    text-align: center;
-    width: 100%;
-    z-index: 1000;
-    padding-top: 4px;
-    background-color: #fff;
-}
-
-#copyright label {
-    font-size: 1.4rem;
-}

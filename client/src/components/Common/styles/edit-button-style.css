@@ -1,0 +1,13 @@
+.edit-icon {
+    color: green;
+    height: 20px;
+    cursor: pointer;
+    zoom: 1.2;
+    outline: none;
+    border: none;
+}
+
+.edit-icon:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}

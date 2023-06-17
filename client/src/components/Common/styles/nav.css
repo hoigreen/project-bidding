@@ -1,0 +1,168 @@
+/* --------Stylesheet for the Navigation component ------*/
+#nav {
+    display: flex;
+    width: 100%;
+    height: 60px;
+    padding: 0 20px;
+    background-image: transparent;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.nav__logo {
+    display: block;
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    padding: 10px 6px;
+    cursor: pointer;
+}
+
+.nav__notification {
+    display: none;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 40%;
+    padding: 16px 20px;
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.nav__group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav__option {
+    display: block;
+}
+
+.nav__option-btn {
+    margin: 0 20px 0 0;
+    padding: 8px 20px;
+    font-size: 1.8rem;
+    border: none;
+    background-color: transparent;
+    color: var(--text-gray);
+}
+
+.nav__option-btn:hover {
+    cursor: pointer;
+    color: #333;
+}
+
+.nav__option-btn:last-child {
+    margin-right: 0;
+}
+
+.nav__account {
+    display: flex;
+    gap: 20px;
+}
+
+.nav__account-info {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 2rem;
+    color: #444;
+}
+
+.nav__account-name {}
+
+.nav__account-char {
+    margin: 0 6px;
+}
+
+.nav__account-balence {
+    color: red;
+    font-size: 2.2rem
+}
+
+.nav__account-btn {
+    padding: 8px 14px;
+    font-size: 1.8rem;
+    border: 1px solid var(--text-gray);
+    background-color: transparent;
+    color: var(--text-gray);
+    border-radius: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    max-height: 36px;
+}
+
+.nav__account-btn:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.nav__account-btn--login {
+    color: #39ba18;
+}
+
+.nav__account-btn--register {
+    color: #fff;
+    background-color: #39ba18;
+    border-color: #39ba18;
+}
+
+.nav__account-btn-icon {
+    margin-left: 4px;
+    transform: translateY(1px)
+}
+
+
+/* Nav mobile */
+.nav-mobile {
+    display: none;
+    height: 60px;
+    width: 100%;
+    padding: 0 0 0px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.nav-mobile__btn {
+    width: 20%;
+    display: block;
+    padding: 6px 4px;
+    background-color: #fff;
+    color: var(--text-gray);
+    cursor: pointer;
+}
+
+.nav-mobile__btn--active {
+    color: var(--primary-color);
+    background-color: #eee;
+}
+
+.nav-mobile__btn-icon {
+    display: block;
+    padding: 4px;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.nav-mobile__btn-name {
+    display: block;
+    padding: 4px 0;
+    text-align: center;
+    font-size: 1.2rem;
+}

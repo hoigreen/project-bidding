@@ -63,7 +63,7 @@
     {
       "username": "hoigreen",
       "password": "121212",
-      "balence": 1000000
+      "balence": 1200000
     }
   ],
   "products": [
@@ -117,6 +117,24 @@
       "owner": "nhom03_test",
       "last_bidder": "hgreen",
       "is_bidded": true
+    },
+    {
+      "owner": "hoigreen",
+      "name": "1",
+      "timeStart": "17/6/2023",
+      "timeEnd": "2023-06-17T07:52:12.091Z",
+      "minutes": "1",
+      "price": "1",
+      "is_bidded": false
+    },
+    {
+      "owner": "hoigreen",
+      "name": "1",
+      "timeStart": "17/6/2023",
+      "timeEnd": "2023-06-17T08:30:57.992Z",
+      "minutes": "1",
+      "price": "1",
+      "is_bidded": false
     }
   ]
 }

@@ -1,0 +1,14 @@
+#copyright {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    z-index: 1000;
+    padding-top: 4px;
+    background-color: #fff;
+}
+
+#copyright label {
+    font-size: 1.4rem;
+}

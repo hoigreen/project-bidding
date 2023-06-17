@@ -1,0 +1,94 @@
+/* --------Stylesheet for the MainPage component ------*/
+.home__container {
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    position: fixed;
+    top: 60px;
+    bottom: 10px;
+}
+
+.home__items {
+    padding: 20px;
+    border-radius: 10px;
+    outline: none;
+    box-shadow: 0 2px 2px rgb(0 0 0 / 10%);
+    transform: translateY(0);
+}
+
+.home__items:hover {
+    cursor: pointer;
+    transform: translateY(-3px);
+}
+
+.home__sidebar-one {
+    flex: 3;
+    background-image: url(../images/img-main-product.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70%;
+    background-color: #f0dbd9;
+}
+
+.home__content {
+    flex: 7;
+    display: flex;
+    flex-direction: column;
+    padding-left: 16px;
+}
+
+.home__sidebar-two {
+    flex: 1;
+    background-color: #94dad5;
+    margin-bottom: 16px;
+    background-image: url(../images/img-main-bidding.jpg);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 40%;
+}
+
+.home__sidebar-three {
+    flex: 1;
+    display: flex;
+}
+
+.home__items-label {
+    display: inline-block;
+    width: 100%;
+    font-size: 3.6rem;
+    padding: 10px 0 20px 0;
+    text-align: center;
+    font-weight: 600;
+    color: green;
+    text-shadow: 1px 1px #fff;
+}
+
+.home__items-description {
+    display: inline-block;
+    width: 100%;
+    font-size: 1.6rem;
+    padding: 10px 0 20px 0;
+    text-align: center;
+}
+
+.home__items-img {}
+
+
+.home__fund {
+    flex: 1;
+    margin-right: 16px;
+    background-color: #ffcab8;
+    background-image: url(../images/img-main-fund.jpg);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 40%;
+}
+
+.home__contact {
+    flex: 1;
+    background-color: #ebe8e8;
+    background-image: url(../images/img-main-contact.jpg);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 70%;
+}
