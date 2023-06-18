@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import "./styles/account-style.css" 
+import "../../styles/responstive.css" 
 
 import Copyright from '../Common/Copyright';
 import ToastMessage from '../Common/ToastMessage';

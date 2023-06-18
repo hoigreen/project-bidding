@@ -13,7 +13,7 @@ import ListProduct from './components/ListPage/ListPage';
 import ContactPage from './components/Contact/ContactPage';
 import FundPage from './components/Funding/FundPage';
 
-// const socket = socketIO.connect('https://http://localhost:4000');
+// const socket = socketIO.connect('http://localhost:4000');
 const socket = socketIO.connect('https://bidding-server.onrender.com');
 
 function App() {

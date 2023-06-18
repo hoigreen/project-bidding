@@ -190,3 +190,17 @@ th {
     border-radius: 12px;
     cursor: pointer;
 }
+
+
+/* Mobile */
+@media screen and (max-width: 739px) {
+
+    /* ------------Bididng Page------------------ */
+    .bidding__table-container {
+        overflow-x: scroll;
+    }
+
+    .bidding__body-data--empty {
+        display: none;
+    }
+}

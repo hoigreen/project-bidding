@@ -4,6 +4,7 @@ import socketIO from 'socket.io-client';
 
 import "./styles/nav.css"
 
+
 const socket = socketIO.connect('https://bidding-server.onrender.com');
 
 const Nav = () => {
