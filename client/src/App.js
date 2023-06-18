@@ -5,7 +5,7 @@ import socketIO from 'socket.io-client';
 
 import Login from './components/Account/Login';
 import Register from './components/Account/Register';
-import Home from './components/HomPage/HomePage';
+import HomePage from './components/HomePage/HomePage';
 import AddProduct from './components/Bidding/AddProduct';
 import BidProduct from './components/Bidding/BidProduct';
 import BiddingPage from './components/Bidding/BiddingPage';
@@ -22,7 +22,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Login socket={socket} />} />
                 <Route path="/register" element={<Register socket={socket} />} />
-                <Route path="/home" element={<Home />} />
+                <Route path="/home" element={<HomePage />} />
                 <Route path="/list" element={<ListProduct socket={socket} />} />
 
                 <Route path="/bidding" element={<BiddingPage socket={socket} />} />
